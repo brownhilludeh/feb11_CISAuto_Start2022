@@ -1,6 +1,8 @@
 package info.hccis.cisauto.entity;
 
 import info.hccis.cisauto.util.CisUtility;
+
+import java.util.Objects;
 import java.util.Scanner;
 
 /**
@@ -13,7 +15,8 @@ public class Vehicle {
 
     public enum StatusType {
 
-        INSTOCK, SOLD
+        INSTOCK, SOLD;
+        
     }
 
     public static final int TYPE_CAR = 1;
@@ -69,18 +72,19 @@ public class Vehicle {
      *
      * @param vehicleTypeCode
      * @param costToDealer
-     * @param statusType
      */
-    public Vehicle(int vehicleTypeCode, double costToDealer) {
-        setVehicleId();
-        this.vehicleTypeCode = vehicleTypeCode;
-        this.costToDealer = costToDealer;
-        this.statusType = StatusType.INSTOCK;
-        if (CisUtility.DEBUGGING) {
-            System.out.println("Created a new vehicle(passed in all attributes)");
-            System.out.println(this.toString());
-        }
-    }
+    // public Vehicle(int vehicleTypeCode, double costToDealer, int modelYear, StatusType statusType) {
+    //     setVehicleId();
+    //     this.vehicleTypeCode = vehicleTypeCode;
+    //     this.costToDealer = costToDealer;
+    //     this.modelYear = modelYear;
+    //     this
+    //     this.statusType = StatusType.INSTOCK;
+    //     if (CisUtility.DEBUGGING) {
+    //         System.out.println("Created a new vehicle(passed in all attributes)");
+    //         System.out.println(this.toString());
+    //     }
+    // }
 
     /**
      * Default constructor
@@ -185,6 +189,19 @@ public class Vehicle {
         this.listPrice = price;
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Vehicle vehicle = (Vehicle) o;
+        return getModelYear() == vehicle.getModelYear();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getModelYear());
+    }
+
     /**
      * Method will display to the console
      *
@@ -208,5 +225,7 @@ public class Vehicle {
                 + "\nstatusTypeCode:" + statusType
                 + "\n-----------------------------\n";
     }
+
+
 
 }
