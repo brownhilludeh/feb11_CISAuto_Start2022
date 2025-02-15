@@ -196,6 +196,8 @@ public class Controller {
         // System.out.println(hashSet.size());
 
         HashSet<Vehicle> hashSetVehicle = new HashSet<>();
+        hashSetVehicle.add(Vehicle.testFive);
+        // variableName.add();
         // for (Vehicle vehicle : inventoryList) {
         //     hashSetVehicle.add(vehicle);
         // }

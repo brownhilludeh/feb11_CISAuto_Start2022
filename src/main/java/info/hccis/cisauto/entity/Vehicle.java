@@ -34,6 +34,7 @@ public class Vehicle {
     private int modelYear;
     private StatusType statusType;
     private static int currentMaxVehicleId;
+    public static Vehicle testFive;
 
     /**
      * This constructor will accept values for the attributes.
@@ -73,18 +74,17 @@ public class Vehicle {
      * @param vehicleTypeCode
      * @param costToDealer
      */
-    // public Vehicle(int vehicleTypeCode, double costToDealer, int modelYear, StatusType statusType) {
-    //     setVehicleId();
-    //     this.vehicleTypeCode = vehicleTypeCode;
-    //     this.costToDealer = costToDealer;
-    //     this.modelYear = modelYear;
-    //     this
-    //     this.statusType = StatusType.INSTOCK;
-    //     if (CisUtility.DEBUGGING) {
-    //         System.out.println("Created a new vehicle(passed in all attributes)");
-    //         System.out.println(this.toString());
-    //     }
-    // }
+    public Vehicle(int vehicleTypeCode, double costToDealer, int modelYear, StatusType statusType) {
+        setVehicleId();
+        this.vehicleTypeCode = vehicleTypeCode;
+        this.costToDealer = costToDealer;
+        this.modelYear = modelYear;
+        this.statusType = StatusType.INSTOCK;
+        if (CisUtility.DEBUGGING) {
+            System.out.println("Created a new vehicle(passed in all attributes)");
+            System.out.println(this.toString());
+        }
+    }
 
     /**
      * Default constructor
@@ -225,7 +225,5 @@ public class Vehicle {
                 + "\nstatusTypeCode:" + statusType
                 + "\n-----------------------------\n";
     }
-
-
 
 }
